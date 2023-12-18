@@ -6,7 +6,7 @@ function Search({handleSearch}) {
       <input
         type="text"
         placeholder="Search your Recent Transactions"
-        onChange={() => handleSearch}
+        onChange={handleSearch}
       />
       <i className="circular search link icon"></i>
     </div>

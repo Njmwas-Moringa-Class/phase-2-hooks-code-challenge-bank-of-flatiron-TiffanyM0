@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Transaction from "./Transaction";
 
-function TransactionsList({ transaction }) {
+function TransactionsList({ transactions }) {
   const [sortOrder, setSortOrder] = useState("asc");
   const [sortColumn, setSortColumn] = useState(""); 
-  const [originalTransactions, setOriginalTransactions] = useState([]); // Highlighted change
+  const [originalTransactions, setOriginalTransactions] = useState([]); 
   const [sortedTransactions, setSortedTransactions] = useState([]);
 
   useEffect(() => {
-    setOriginalTransactions([...transaction]);
-    setSortedTransactions([...transaction]);
-  }, [transaction]);
+    setOriginalTransactions([...transactions]);
+    setSortedTransactions([...transactions]);
+  }, [transactions]);
 
   const sortBy = (header) => {
     const sorted = [...originalTransactions].sort((a, b) => {

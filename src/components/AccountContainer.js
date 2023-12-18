@@ -6,22 +6,24 @@ import AddTransactionForm from "./AddTransactionForm";
 function AccountContainer() {
   const [transaction, setTransaction] = useState([])
   const [query, setQuery] = useState("")
-
   useEffect(() => {
     fetch("http://localhost:8001/transactions?q=" + query)
       .then((resp) => resp.json())
       .then(transaction => setTransaction(transaction))
   }, [query])
-
-  const searchT = (e) => setQuery(e.target.value);
-
+  
+  function handleSearch(e) {
+    setQuery(e.target.value)
+  }
   return (
     <div>
-      <Search searchT={searchT} />
+      <Search handleSearch={handleSearch} />
       <AddTransactionForm />
-      <TransactionsList transaction={transaction} />
+      <TransactionsList transactions={transaction} />
     </div>
   );
 }
 
+
 export default AccountContainer;
+
